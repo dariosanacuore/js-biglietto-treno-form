@@ -5,10 +5,10 @@ const etaInput = document.getElementById("eta");
 const testoOutput = document.getElementById("testo");
 
 
-form.addEventListener("click", function (event) {
+form.addEventListener("submit", function (event) {
     event.preventDefault();
-    const numKm = numKmInput.value;
-    const eta = etaInput.value;
+    const numKm = parseInt(numKmInput.value.trim());
+    const eta = parseInt(etaInput.value.trim());
 
 
     let prezzoFinale;
@@ -20,35 +20,42 @@ form.addEventListener("click", function (event) {
 
 
     if (eta < 0 || numKm <= 0) {
-        console.log("Dati inseriti non sono validi");
+        testoOutput.innerText = "Dati inseriti non sono validi";
+        //console.log("Dati inseriti non sono validi");
     } else if (Number.isNaN(eta) || Number.isNaN(numKm)) {
-        console.log("Errore: inserisci solo numeri validi");
+        testoOutput.innerText = "Errore: inserisci solo numeri validi";
+        //console.log("Errore: inserisci solo numeri validi");
 
     } else {
-        if (eta < 18) {
+        if (eta <= 18) {
             prezzoFinale = (prezzo - scontoMinorenni);
-            prezzoFinale = Math.round(prezzoFinale * 100) / 100;
-            risultato = "Il prezzo finale è: " + prezzoFinale + " €";
 
-        } else if (eta > 65) {
+
+        } else if (eta >= 65) {
             prezzoFinale = (prezzo - scontoOver65);
-            prezzoFinale = Math.round(prezzoFinale * 100) / 100;
-            risultato = "Il prezzo finale è: " + prezzoFinale + " €";
+
+
         } else {
             prezzoFinale = prezzo;
-            prezzoFinale = Math.round(prezzoFinale * 100) / 100;
-            risultato = "Il prezzo finale è: " + prezzo + " €";
+
+
         }
     }
 
 
 
 
-    prezzoFinale = Math.round(prezzoFinale * 100) / 100;
-
+    prezzoFinaleDecimale = prezzoFinale.toFixed(2);
+    risultato = `Il prezzo finale è: ${prezzoFinaleDecimale} €`;
 
     //console.log(risultato);
-
+    testo.innerHTML = `<div class=d-flex-justify-content-between>
+    <ul>
+    <li>${numKm}</li>
+    <li>${eta}</li>
+    <li>${risultato}</li>
+    </ul>
+    </div>`
 
 
 
