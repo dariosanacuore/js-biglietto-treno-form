@@ -5,6 +5,10 @@ const numKmInput = document.getElementById("numKm");
 const etaInput = document.getElementById("eta");
 const testoOutput = document.getElementById("testo");
 
+//elementi card
+const cardHeader = document.querySelector(".card-header");
+const cardText = document.querySelector(".card-text");
+
 
 
 
@@ -24,7 +28,7 @@ form.addEventListener("submit", function (event) {
     let biglietto = "";
 
     if (eta < 0 || numKm <= 0) {
-        testoOutput.innerText = "Dati inseriti non sono validi";
+        alert("Dati inseriti non sono validi");
         //console.log("Dati inseriti non sono validi");
     } else if (Number.isNaN(eta) || Number.isNaN(numKm)) {
         testoOutput.innerText = "Errore: inserisci solo numeri validi";
