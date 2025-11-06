@@ -9,16 +9,41 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
-<body>
-    <form action="">
-        <label for="numKm">Quanti km vuoi percorrere?</label>
-        <input type="number" id="numKm" />
-        <label for="eta">Scrivi la tua età</label>
-        <input type="text" id="eta" />
-        <button id="submit">Genera</button>
-    </form>
+<body class="bg-danger">
+    <div class="container">
+        <h2 class="text-center text-light">CALCOLA IL PREZZO DEL TUO BIGLIETTO</h2>
+        <div class="card">
+            <form action="">
+                <div class="card-header d-flex justify-content-around text-danger">
+                    <label for="nome">Nome Cognome</label>
 
-    <div id="testo"></div>
+                    <label for="numKm">Km da percorrere</label>
+                    <label for="eta">Scrivi la tua età</label>
+                </div>
+                <div class="card-text d-flex justify-content-around mt-3 ">
+                    <input class="btn btn-outline-danger" type="text" />
+                    <input class="btn btn-outline-danger" type="number" id="numKm" />
+                    <input class="btn btn-outline-danger" type="text" id="eta" />
+                </div>
+                <div class="d-flex justify-content-center mt-5 gap-3 text-danger">
+                    <button id="submit">Genera</button>
+                    <button id="annulla">Annulla</button>
+                </div>
+            </form>
+
+        </div>
+
+
+
+
+
+
+
+        <div id="testo"></div>
+
+
+
+    </div>
 
     <script src="./js/script.js"></script>
 </body>
