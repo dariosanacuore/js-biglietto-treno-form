@@ -6,6 +6,8 @@ const etaInput = document.getElementById("eta");
 const testoOutput = document.getElementById("testo");
 
 
+
+
 form.addEventListener("submit", function (event) {
     event.preventDefault();
     const numKm = parseInt(numKmInput.value.trim());
@@ -55,7 +57,7 @@ form.addEventListener("submit", function (event) {
     //console.log(risultato);
     testo.innerHTML = `
    <div class="card">
-    <div class="card-header mt-3">
+    <div id="header" class="card-header mt-3">
         <h5>DETTAGLIO PASSEGERI</h5>
     </div>
 
@@ -82,6 +84,11 @@ form.addEventListener("submit", function (event) {
 
 
 
+});
+
+
+form.addEventListener("reset", function () {
+    testo.innerHTML = "";
 });
 
 
